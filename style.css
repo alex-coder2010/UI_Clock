@@ -69,7 +69,7 @@ body.dark{
     color: hsl(0, 0%, 96%);
     background-color: hsl(0, 0%, 41%);
     cursor: pointer;
-    margin-left: 100px;
+    margin-left: 30px;
 }
 
 .header{
@@ -86,8 +86,11 @@ body.dark{
     border: none;
 }
 
-.title{
-    margin-left: 150px;
+.headerContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .timeContainer{
@@ -158,4 +161,24 @@ body.dark{
 
 #nightMode:hover{
     background-color: var(--night-mode-button-background-color-hover);
+}
+
+@media screen and (max-width: 600px){
+
+    .time{
+        font-size: 50px;
+    }    
+
+    .timeContainer{
+        width: 200px;
+    }
+
+
+
+    #changeFormat{
+        font-size: 15px;
+        padding-inline: 40px;
+        padding-block: 20px;
+    }
+
 }
