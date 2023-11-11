@@ -41,7 +41,7 @@ body{
 
     /* TRANSTITION */
 
-    transition: 1s;
+    transition: 0.15s;
 
 }
 
@@ -134,7 +134,7 @@ body.dark{
 
     background-color: var(--start-stop-button-background-color);
     color: var(--start-stop-button-text-color);
-    transition: 0.5s;
+    transition: 0.15s;
 }
 
 #changeFormat:hover{
@@ -156,7 +156,7 @@ body.dark{
     padding: 10px;
     border-radius: 10px;
     border: none;
-    transition: 0.5s;
+    transition: 0.15s;
 }
 
 #nightMode:hover{
