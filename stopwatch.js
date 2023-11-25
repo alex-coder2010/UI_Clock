@@ -3,52 +3,41 @@ const changeFormat = document.querySelector("#changeFormat");
 const timeText = document.querySelector(".time");
 const nightModeButton = document.querySelector("#nightMode");
 
-// GLOBAL VARIABLES
-let running = false;
-let number = 0;
+// -----
 
-// Check local storage for the user's preferred mode
-const userMode = localStorage.getItem('darkMode');
+const userMode = localStorage.getItem('theme');
+const userFormat = localStorage.getItem('format');
 
-// If a mode is stored, apply it
 if (userMode) {
     document.body.classList.add(userMode);
 }
+let is12Hour = userFormat === 'true';
+
+changeFormat.textContent = is12Hour ? "12 HOUR FORMAT" : "24 HOUR FORMAT";
+
+const clockSettings = { hour12: is12Hour, hour: "2-digit", minute: "2-digit", second: "2-digit" };
 
 // DARK MODE
 nightModeButton.addEventListener("click", () => {
     document.body.classList.toggle("dark");
     
-    // Update local storage with the current mode
     const isDarkMode = document.body.classList.contains("dark");
-    localStorage.setItem('darkMode', isDarkMode ? 'dark' : '');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : '');
 });
 
-
-// SEETING DATE
-
-clockSettings = {hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit"}
-is12Hour = false
-
+// SETTING DATE
 changeFormat.addEventListener("click", () => {
 
-    if(is12Hour){
-         changeFormat.textContent = "12 HOUR FORMAT";
-         clockSettings.hour12 = false;
-         is12Hour = false;
-    }
+    is12Hour = !is12Hour;
 
-    else if(!is12Hour){
-        changeFormat.textContent = "24 HOUR FORMAT";
-        clockSettings.hour12 = true;
-        is12Hour = true;
-    }
+    localStorage.setItem('format', is12Hour);
 
-})
+    changeFormat.textContent = is12Hour ? "12 HOUR FORMAT" : "24 HOUR FORMAT";
 
-setInterval(() =>{
+    clockSettings.hour12 = is12Hour;
+});
 
+setInterval(() => {
     let currentDate = new Date();
     timeText.textContent = currentDate.toLocaleTimeString(undefined, clockSettings);
-
-}, 1)
+}, 1);
