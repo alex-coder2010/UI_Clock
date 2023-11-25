@@ -1,22 +1,28 @@
 // DOM ELEMENTS
-
-
 const changeFormat = document.querySelector("#changeFormat");
 const timeText = document.querySelector(".time");
-
+const nightModeButton = document.querySelector("#nightMode");
 
 // GLOBAL VARIABLES
-
 let running = false;
 let number = 0;
 
+// Check local storage for the user's preferred mode
+const userMode = localStorage.getItem('darkMode');
+
+// If a mode is stored, apply it
+if (userMode) {
+    document.body.classList.add(userMode);
+}
 
 // DARK MODE
-
-
-document.querySelector("#nightMode").addEventListener("click", () => {
+nightModeButton.addEventListener("click", () => {
     document.body.classList.toggle("dark");
-})
+    
+    // Update local storage with the current mode
+    const isDarkMode = document.body.classList.contains("dark");
+    localStorage.setItem('darkMode', isDarkMode ? 'dark' : '');
+});
 
 
 // SEETING DATE
