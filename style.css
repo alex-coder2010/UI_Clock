@@ -41,7 +41,7 @@ body{
 
     /* TRANSTITION */
 
-    transition: 0.15s;
+    transition: 1s;
 
 }
 
@@ -69,7 +69,7 @@ body.dark{
     color: hsl(0, 0%, 96%);
     background-color: hsl(0, 0%, 41%);
     cursor: pointer;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .header{
@@ -134,7 +134,7 @@ body.dark{
 
     background-color: var(--start-stop-button-background-color);
     color: var(--start-stop-button-text-color);
-    transition: 0.15s;
+    transition: 0.5s;
 }
 
 #changeFormat:hover{
@@ -156,11 +156,17 @@ body.dark{
     padding: 10px;
     border-radius: 10px;
     border: none;
-    transition: 0.15s;
+    transition: 0.5s;
 }
 
 #nightMode:hover{
     background-color: var(--night-mode-button-background-color-hover);
+}
+
+.title{
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 @media screen and (max-width: 600px){
@@ -170,7 +176,7 @@ body.dark{
     }    
 
     .timeContainer{
-        width: 293px;
+        width: 200px;
     }
 
 
@@ -182,4 +188,3 @@ body.dark{
     }
 
 }
-
